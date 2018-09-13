@@ -1,5 +1,5 @@
 $(function() {
 
-	// Custom JS
+    $('#container').parallax({imageSrc: 'img/bg_front.png'});
 
 });
