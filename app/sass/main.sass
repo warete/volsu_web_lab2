@@ -17,6 +17,9 @@ body
 	font-family: $default-font
 	overflow-x: hidden
 	color: $text
+	background-image: url(../img/bg_back.png)
+	background-color: #5400d3
+	background-attachment: fixed
 	input, textarea
 		border: #666 1px solid
 		outline: none
@@ -37,6 +40,13 @@ body
 
 b, strong
 	font-weight: bold
+
+.text-shadow
+	text-shadow: 2px 2px 2px #000
+.box-shadow
+	-webkit-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
+	-moz-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
+	box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
 
 /*Pushy custom start*/
 
@@ -68,5 +78,32 @@ li.pushy-link
 		padding: 15px 40px
 
 /*Pushy custom end*/
+
+.instruction
+	background-color: rgba(0, 0, 0, 0.6)
+	h2
+		color: $accent
+	&__number
+		&:before
+			content: ""
+			position: absolute
+			height: 100%
+			width: 1px
+			background-color: #e3e3e3
+			left: 15px
+			bottom: 0
+		span
+			display: block
+			width: 30px
+			height: 30px
+			-webkit-border-radius: 50%
+			-moz-border-radius: 50%
+			border-radius: 50%
+			background-color: #0077d3
+			color: #fff
+			font-weight: bold
+			position: relative
+	&__message
+//border-left: 1px solid #5a6268
 
 @import "media" // Always at the end
