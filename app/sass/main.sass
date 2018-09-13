@@ -38,6 +38,35 @@ body
 b, strong
 	font-weight: bold
 
+/*Pushy custom start*/
 
+.pushy
+	width: 300px
+
+.pushy-right
+	-webkit-transform: translate3d(300px, 0, 0)
+	-ms-transform: translate3d(300px, 0, 0)
+	transform: translate3d(300px, 0, 0)
+
+.pushy-open-right #container, .pushy-open-right .push
+	-webkit-transform: translate3d(-300px, 0, 0)
+	-ms-transform: translate3d(-300px, 0, 0)
+	transform: translate3d(-300px, 0, 0)
+
+li.pushy-link
+	list-style-type: none
+	position: relative
+	&:before
+		content: ""
+		position: absolute
+		width: 22px
+		height: 35px
+		margin: 10px 0
+		background-image: url(../img/right_menu_pointer.png)
+		background-repeat: no-repeat
+	a
+		padding: 15px 40px
+
+/*Pushy custom end*/
 
 @import "media" // Always at the end
