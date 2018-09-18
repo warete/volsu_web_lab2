@@ -37,8 +37,10 @@ gulp.task('styles', function() {
 gulp.task('js', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
+		'app/libs/jquery-mousewheel/jquery.mousewheel.js',
 		'app/libs/pushy/js/pushy.min.js',
 		'app/libs/parallax-js/js/parallax.min.js',
+		'app/libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
