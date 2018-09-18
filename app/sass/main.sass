@@ -82,7 +82,7 @@ li.pushy-link
 /*Pushy custom end*/
 
 .instruction
-	background-color: rgba(0, 0, 0, 0.6)
+	background-color: $content-bg
 	h2
 		color: $accent
 	&__number
@@ -110,7 +110,32 @@ li.pushy-link
   &__header
     text-decoration: underline
   &__item
-    background-color: rgba(0, 0, 0, 0.6)!important
+    background-color: $content-bg!important
 
+.all-requests
+	background-color: $content-bg
+	#cityShop
+		display: none
+	#map
+		width: 100%
+		min-height: 400px
+	#shops
+		.list-group-item
+			background-color: transparent
+			border: 1px solid $content-bg-inverse
+			cursor: pointer
+			&.active
+				background-color: $content-bg-inverse
+				color: #000
+				font-weight: bold
+			&:hover
+				background-color: $content-bg-inverse
+				color: #000
+				font-weight: bold
+	&__list
+		max-height: 300px
+	.requests-list
+		&__item
+			border-top: 1px solid $accent
 
 @import "media" // Always at the end
