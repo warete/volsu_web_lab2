@@ -18,7 +18,7 @@ body
 	overflow-x: hidden
 	color: $text
 	background-image: url(../img/bg_back.png)
-	background-color: #5400d3
+	background-color: $secondary
 	background-attachment: fixed
       -webkit-background-size: contain
       background-size: contain
@@ -49,6 +49,14 @@ b, strong
 	-webkit-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
 	-moz-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
 	box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
+
+.form-group
+	.form-label
+		&.required::after
+			content: "*"
+			color: $accent
+			margin-left: .25rem
+
 
 /*Pushy custom start*/
 
@@ -122,16 +130,16 @@ li.pushy-link
 	#shops
 		.list-group-item
 			background-color: transparent
-			border: 1px solid $content-bg-inverse
+			border: 1px solid $primary
 			cursor: pointer
+			color: $primary
 			&.active
-				background-color: $content-bg-inverse
-				color: #000
+				background-color: $primary
+				color: $light
 				font-weight: bold
 			&:hover
-				background-color: $content-bg-inverse
-				color: #000
-				font-weight: bold
+				background-color: $primary
+				color: $light
 	&__list
 		max-height: 300px
 	.requests-list
