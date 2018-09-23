@@ -195,5 +195,37 @@ li.pushy-link
 				color: $light
 
 
+.new-request
+	&__item
+		border: 1px solid $light
+	.request-item
+		.done-icon
+			display: none
+		.error-icon
+			display: none
+		&__header
+			border-bottom: 1px solid $light
+			.btn-link
+				color: $light
+		&.done
+			border: 1px solid $green
+			.btn-link
+				color: $green
+			.card-header
+				border-bottom: 1px solid $green
+			.done-icon
+				color: $green
+				display: block
+		&.error
+			border: 1px solid $red
+			.btn-link
+				color: $red
+			.card-header
+				border-bottom: 1px solid $red
+			.error-icon
+				color: $red
+				display: block
+
+
 
 @import "media" // Always at the end
