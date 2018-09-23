@@ -3,6 +3,10 @@ $(function() {
     // Parallax
     $('#container').parallax({imageSrc: 'img/bg_front.png'});
 
+});
+
+function allRequestsMapInit()
+{
     var myMap;
     var placemarkCollections = {};
     var placemarkList = {};
@@ -116,4 +120,4 @@ $(function() {
             placemarkList[cityId][shopId].balloon.open();
         });
     });
-});
+}
