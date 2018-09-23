@@ -10,7 +10,8 @@ var gulp          = require('gulp'),
 		rename        = require('gulp-rename'),
 		autoprefixer  = require('gulp-autoprefixer'),
 		notify        = require("gulp-notify"),
-		rsync         = require('gulp-rsync');
+		rsync         = require('gulp-rsync'),
+    	replace		  = require('gulp-inject');
 
 gulp.task('browser-sync', function() {
 	browserSync({
@@ -65,9 +66,31 @@ gulp.task('rsync', function() {
 	}))
 });
 
-gulp.task('watch', ['styles', 'js', 'browser-sync'], function() {
+gulp.task('html', function () {
+    var inject = require('gulp-inject');
+    return gulp.src('app/*.html')
+        .pipe(
+        	inject(
+        		gulp.src(
+        			'app/include/*.html'
+				),
+				{
+                    starttag: '<!-- inject:{{path}} -->',
+                    relative: true,
+					transform: function (filepath, file) {
+                        return file.contents.toString('utf8')
+                    }
+				}
+			)
+		)
+        .pipe(gulp.dest('app'))
+        .pipe(browserSync.reload({ stream: true }));
+});
+
+gulp.task('watch', ['styles', 'js', 'html', 'browser-sync'], function() {
 	gulp.watch('app/'+syntax+'/**/*.'+syntax+'', ['styles']);
 	gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['js']);
+	// gulp.watch('app/*.html', browserSync.reload)
 	gulp.watch('app/*.html', browserSync.reload)
 });
 
