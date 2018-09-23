@@ -12,11 +12,12 @@
 body
 	font-size: 16px
 	min-width: 320px
-	position: relative
 	line-height: 1.65
 	font-family: $default-font
 	overflow-x: hidden
 	color: $text
+	position: relative
+	min-height: 100%
 	background-image: url(../img/bg_back.png)
 	background-color: $secondary
 	background-attachment: fixed
@@ -29,6 +30,17 @@ body
 			border-color: red
 		&:required:valid
 			border-color: green
+
+html
+	height: 100%
+
+footer
+	margin-top: 60px
+	position: absolute
+	bottom: 0
+	width: 100%
+	left: 0
+	height: 60px
 
 .img-responsive
 	display: block
