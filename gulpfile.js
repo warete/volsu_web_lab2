@@ -37,6 +37,7 @@ gulp.task('styles', function() {
 gulp.task('js', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
+		'app/libs/bootstrap/dist/js/bootstrap.js',
 		'app/libs/jquery-mousewheel/jquery.mousewheel.js',
 		'app/libs/pushy/js/pushy.min.js',
 		'app/libs/parallax-js/js/parallax.min.js',
