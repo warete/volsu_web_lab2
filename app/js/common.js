@@ -3,6 +3,14 @@ $(function() {
     // Parallax
     $('#container').parallax({imageSrc: 'img/bg_front.png'});
 
+    $(document).on('click', '[href="#replyForm"]', function () {
+        console.log($(this).attr('aria-expanded'));
+        if ($(this).attr('aria-expanded') == 'true')
+        {
+            $('html, body').animate({scrollTop: $(this).offset().top}, 500);
+        }
+    });
+
 });
 
 function allRequestsMapInit()
@@ -120,4 +128,51 @@ function allRequestsMapInit()
             placemarkList[cityId][shopId].balloon.open();
         });
     });
+}
+
+function detailRequestMap(mapData)
+{
+    var myMap;
+
+    function init() {
+
+        // Создаем карту
+        myMap = new ymaps.Map("map", {
+            center: [56, 37],
+            zoom: 8,
+            controls: [],
+            zoomMargin: [20]
+        });
+
+        var cityCollection = new ymaps.GeoObjectCollection();
+
+        var ballonContent = [];
+        ballonContent.push("<strong>" + mapData.name + "</strong>" + "<p>" + mapData.description + "</p>");
+
+        var shopPlacemark = new ymaps.Placemark(
+            mapData.coordinates,
+            {
+                hintContent: mapData.address,
+                balloonContent: ballonContent.join("<hr>")
+            },
+            {
+                iconLayout: 'default#image',
+                iconImageHref: 'img/auchan_icon.png',
+                iconImageSize: [30, 42],
+                iconImageOffset: [-5, -38]
+            }
+        );
+        // Добавляем метку в коллекцию
+        cityCollection.add(shopPlacemark);
+        // Добавляем коллекцию на карту
+        myMap.geoObjects.add(cityCollection);
+
+        // Масштабируем и выравниваем карту так, чтобы были видны метки для выбранного города
+        myMap.setBounds(cityCollection.getBounds(), {checkZoomRange:true}).then(function(){
+            if(myMap.getZoom() > 15) myMap.setZoom(15); // Если значение zoom превышает 15, то устанавливаем 15.
+            cityCollection.balloon.open();
+        });
+    }
+
+    ymaps.ready(init);
 }

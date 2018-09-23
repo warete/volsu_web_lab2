@@ -145,4 +145,43 @@ li.pushy-link
 		&__item
 			border-top: 1px solid $accent
 
+.request-detail
+	&__map
+		#map
+			width: 100%
+			min-height: 400px
+	.detail-info
+		border-right: 1px solid $primary
+		&__item
+		.info-item
+			&__value
+				&.status
+					&_new
+						color: $green
+					&_waiting
+						color: $blue
+					&_done
+						color: $gray-500
+	.shops-small-list
+		&__title
+			text-align: center
+			color: $light
+		&__item
+			position: relative
+			padding: 15px 40px
+			&:before
+				content: ""
+				position: absolute
+				width: 22px
+				height: 35px
+				margin: 10px 0
+				background-image: url(../img/right_menu_pointer.png)
+				background-repeat: no-repeat
+				left: 0
+				top: 0
+			a
+				color: $light
+
+
+
 @import "media" // Always at the end

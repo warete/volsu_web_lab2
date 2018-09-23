@@ -79,32 +79,64 @@
         </div>
 
         <div class="container text-light bg-content">
-            <div class="row p-3">
+            <div class="row">
                 <div class="w-100 px-3">
                     <h2 class="text-uppercase">Заявка #777</h2>
                 </div>
-                <div class="w-100 row request-detail">
-                    <div class="col-12 col-md-8 mb-3">
-                        <h4>Название:</h4>
-                        <p></p>
-                        <h4>Город:</h4>
-                        <p></p>
-                        <h4>Магазин:</h4>
-                        <p></p>
-                        <h4>Описание:</h4>
-                        <p></p>
-                        <h4>Количество ответов:</h4>
-                        <p></p>
-                        <h4>Статус:</h4>
-                        <p></p>
-                        <ul>
-                            <li><strong>Название:</strong></li>
-                            <li><strong>Город:</strong></li>
-                            <li><strong>Магазин:</strong></li>
-                            <li><strong>Описание:</strong></li>
-                            <li><strong>Количество ответов:</strong></li>
-                            <li><strong>Статус:</strong></li>
-                        </ul>
+                <div class="row p-3 request-detail">
+                    <div class="col-12 col-md-8 mb-3 detail-info">
+                        <div class="detail-info__item info-item py-1">
+                            <strong class="info-item__name text-primary">Название:</strong>
+                            <span class="info-item__value">Желтые носки с единорогом</span>
+                        </div>
+                        <div class="detail-info__item info-item py-1">
+                            <strong class="info-item__name text-primary">Город:</strong>
+                            <span class="info-item__value">Волгоград</span>
+                        </div>
+                        <div class="detail-info__item info-item py-1">
+                            <strong class="info-item__name text-primary">Магазин:</strong>
+                            <span class="info-item__value">пр-т Университетский, 107</span>
+                        </div>
+                        <div class="detail-info__item info-item py-1">
+                            <strong class="info-item__name text-primary">Описание:</strong>
+                            <span class="info-item__value">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto commodi eius expedita ipsam mollitia quae recusandae totam unde veniam?</span>
+                        </div>
+                        <div class="detail-info__item info-item py-1">
+                            <strong class="info-item__name text-primary">Количество ответов:</strong>
+                            <span class="info-item__value">6</span>
+                        </div>
+                        <div class="detail-info__item info-item py-1">
+                            <strong class="info-item__name text-primary">Статус:</strong>
+                            <span class="info-item__value status status_waiting">Ожидает</span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="w-100 shops-small-list">
+                            <a class="shops-small-list__title" href="#"><h5>Магазины с заявками рядом</h5></a>
+                            <div class="shops-small-list__item"><a href="#">Верхняя Красносельская ул., 3А</a></div>
+                            <div class="shops-small-list__item"><a href="#">Кастанаевская ул., 54, корп. 3</a></div>
+                            <div class="shops-small-list__item"><a href="#">Пролетарский просп., вл30</a></div>
+                            <div class="shops-small-list__item"><a href="#">МКАД, 53-й километр, вл110</a></div>
+                        </div>
+                    </div>
+                    <div class="col-12 request-detail__map mb-3">
+                        <div id="map"></div>
+                    </div>
+                    <div class="col-12 request-reply">
+                        <div class="text-center px-5 py-3">
+                            <a href="#replyForm" class="btn btn-outline-primary btn-block" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="replyForm">Ответить на заявку</a>
+                        </div>
+                        <div class="request-reply__form collapse" id="replyForm">
+                            <form>
+                                <div class="form-group">
+                                    <label class="label-form">Введите комментарий к ответу. Напишите, почему именно Вас должны выбрать.</label>
+                                    <textarea name="message" cols="30" rows="10" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-lg float-right" type="send">Отправить</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -196,6 +228,14 @@
 
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script src="js/scripts.min.js"></script>
-
+    <script>
+        var mapData = {
+            "coordinates": [48.636252, 44.436522],
+            "address": "Университетский просп., 107",
+            "name": "Желтые носки с единорогом",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, accusamus adipisci animi doloremque id inventore laborum odio quibusdam repudiandae tempore?"
+        };
+        detailRequestMap(mapData);
+    </script>
 </body>
 </html>
